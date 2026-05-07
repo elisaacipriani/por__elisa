@@ -297,6 +297,10 @@ main {
   transition: filter 220ms ease;
 }
 
+.archive-thumb.is-painting-cover img {
+  object-position: center 74%;
+}
+
 .archive-item:hover .archive-thumb img,
 .archive-item:focus .archive-thumb img {
   filter: blur(0) saturate(1) contrast(1.02);
