@@ -23,6 +23,7 @@ const copy = {
     "project.chalten.intro": "Esta serie de fotografías fue tomada durante un viaje a El Chaltén, en Santa Cruz, Patagonia Argentina. La diseñadora viajó allí para sumergirse en la naturaleza, alojándose en una reserva natural dedicada a la conservación y la investigación ambiental.",
     "project.chalten.text": "Aquí, en lo que llamamos ‘El fin del mundo’, la naturaleza revela su verdadera escala. Entre lagos, glaciares, bosques, vientos y aromas, emerge una profunda sensación de paz, como si el mundo volviera por un instante a su forma esencial. Estas fotografías buscan sostener ese momento: la sensación de encontrarse con la naturaleza y reconocerse como una pequeña parte de algo inmenso.",
     "project.jewelry.title": "Formas que Acompañan el Cuerpo",
+    "project.jewelry.pageTitle": "Formas que Acompañan <br>el Cuerpo",
     "project.jewelry.meta": "Cortezas y Texturas / Joyería",
     "project.jewelry.section": "Cortezas y Texturas",
     "project.jewelry.material": "Joyería",
@@ -78,6 +79,7 @@ const copy = {
     "project.chalten.intro": "This series of photographs was taken during a journey to El Chaltén, in Santa Cruz, Patagonia Argentina. The designer traveled there to immerse herself in nature, staying in a natural reserve devoted to conservation and environmental research.",
     "project.chalten.text": "Here, at what we call ‘El fin del mundo’, nature reveals its true scale. Among lakes, glaciers, forests, winds, and scents, a deep sense of peace emerges, as if the world briefly returned to its essential form. These photographs seek to hold that moment, the feeling of encountering nature and recognizing oneself as a small part of something immense.",
     "project.jewelry.title": "Forms that Accompany the Body",
+    "project.jewelry.pageTitle": "Forms that Accompany <br>the Body",
     "project.jewelry.meta": "Barks and Textures / Jewelry",
     "project.jewelry.section": "Barks and Textures",
     "project.jewelry.material": "Jewelry",
@@ -198,6 +200,38 @@ function setupSequences() {
   });
 }
 
+function setupCustomCursor() {
+  if (!window.matchMedia("(pointer: fine)").matches) {
+    return;
+  }
+
+  const cursor = document.createElement("div");
+  cursor.className = "custom-cursor";
+  cursor.setAttribute("aria-hidden", "true");
+  document.documentElement.classList.add("has-custom-cursor");
+  document.body.classList.add("has-custom-cursor");
+  document.documentElement.style.cursor = "none";
+  document.body.style.cursor = "none";
+  document.body.appendChild(cursor);
+
+  document.addEventListener("mousemove", (event) => {
+    cursor.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0) translate(-50%, -50%)`;
+    cursor.classList.add("is-visible");
+
+    const target = event.target;
+    const isImageArea = target instanceof Element && target.closest("img, .archive-thumb, .media-item, .bio-portrait, .intro-portraits");
+    cursor.classList.toggle("is-light", Boolean(isImageArea));
+  });
+
+  document.addEventListener("mouseleave", () => {
+    cursor.classList.remove("is-visible");
+  });
+
+  document.addEventListener("mouseenter", () => {
+    cursor.classList.add("is-visible");
+  });
+}
+
 document.querySelectorAll("[data-set-lang]").forEach((button) => {
   button.addEventListener("click", () => setLanguage(button.dataset.setLang));
 });
@@ -205,4 +239,5 @@ document.querySelectorAll("[data-set-lang]").forEach((button) => {
 ensureInkFilter();
 setupFilters();
 setupSequences();
+setupCustomCursor();
 setLanguage(currentLanguage);

@@ -10,8 +10,6 @@
     0.08px 0.04px 0 rgba(0, 0, 0, 0.34),
     -0.05px 0.08px 0 rgba(0, 0, 0, 0.18),
     0 0 0.22px rgba(0, 0, 0, 0.24);
-  --cursor-line: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M7 16H25' stroke='%23000' stroke-width='1.4' stroke-linecap='butt'/%3E%3C/svg%3E") 16 16;
-  --cursor-line-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M7 16H25' stroke='%23fff' stroke-width='1.4' stroke-linecap='butt'/%3E%3C/svg%3E") 16 16;
 }
 
 * {
@@ -20,7 +18,6 @@
 
 html {
   scroll-behavior: smooth;
-  cursor: var(--cursor-line), auto;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
@@ -90,7 +87,6 @@ body::before {
 
 a {
   color: inherit;
-  cursor: var(--cursor-line), auto;
   text-decoration: none;
 }
 
@@ -100,10 +96,6 @@ button:hover {
   text-underline-offset: 0.18em;
 }
 
-img {
-  cursor: var(--cursor-line-light), auto;
-}
-
 button {
   border: 0;
   background: transparent;
@@ -111,7 +103,48 @@ button {
   font: inherit;
   letter-spacing: 0;
   padding: 0;
-  cursor: var(--cursor-line), pointer;
+  cursor: pointer;
+}
+
+.custom-cursor {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 1.5px;
+  background: #000000;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(-50%, -50%, 0);
+  transition: background-color 120ms ease, opacity 120ms ease;
+}
+
+.custom-cursor.is-visible {
+  opacity: 1;
+}
+
+.custom-cursor.is-light {
+  background: #ffffff;
+}
+
+html.has-custom-cursor,
+html.has-custom-cursor body,
+html.has-custom-cursor body::before,
+html.has-custom-cursor *,
+html.has-custom-cursor *::before,
+html.has-custom-cursor *::after,
+body.has-custom-cursor,
+body.has-custom-cursor *,
+body.has-custom-cursor *::before,
+body.has-custom-cursor *::after {
+  cursor: none !important;
+}
+
+@media (pointer: coarse) {
+  .custom-cursor {
+    display: none;
+  }
 }
 
 h1,
@@ -785,29 +818,31 @@ main {
   }
 
   .site-header {
-    grid-template-columns: 1fr;
-    gap: 8px;
-    align-items: baseline;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 6px;
+    align-items: start;
     padding-top: 12px;
     padding-bottom: 12px;
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .brand {
-    justify-self: center;
+    grid-column: 1;
+    justify-self: start;
   }
 
   .site-nav {
-    grid-column: 1;
+    grid-column: 2;
     order: 0;
     flex-wrap: nowrap;
     justify-content: center;
-    gap: 7px;
+    gap: 5px;
     min-width: 0;
   }
 
   .language-switch {
-    justify-self: center;
+    grid-column: 3;
+    justify-self: end;
   }
 
   .brand,
@@ -947,12 +982,12 @@ main {
   }
 
   .contact-email {
-    right: 0;
+    right: 66px;
     bottom: 0;
   }
 
   .contact-phone {
-    right: 126px;
+    right: 142px;
     bottom: 0;
   }
 
