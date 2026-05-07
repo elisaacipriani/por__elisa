@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -u
+
+ROOT="$(git rev-parse --show-toplevel)"
+
+echo "Deploying POR ELISA to Vercel production..."
+if ! "$ROOT/scripts/deploy-production.sh"; then
+  echo "Vercel deploy failed. The commit was created, but porelisa.com may not reflect it yet." >&2
+  exit 0
+fi

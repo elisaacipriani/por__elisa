@@ -1,8 +1,8 @@
 const copy = {
   es: {
-    "nav.archive": "[archivo]",
-    "nav.bio": "[bio]",
-    "nav.contact": "[contacto]",
+    "nav.archive": "archivo",
+    "nav.bio": "bio",
+    "nav.contact": "contacto",
     "home.kicker": "Artista / Diseñadora / Persona",
     "home.intro": "Un archivo visual para reunir obra, fotografía,<br>objetos y procesos hechos a mano.",
     "archive.title": "Archivo",
@@ -55,9 +55,9 @@ const copy = {
     "label.work": "Obra"
   },
   en: {
-    "nav.archive": "[archive]",
-    "nav.bio": "[bio]",
-    "nav.contact": "[contact]",
+    "nav.archive": "archive",
+    "nav.bio": "bio",
+    "nav.contact": "contact",
     "home.kicker": "Artist / Designer / Person",
     "home.intro": "A visual archive for works, photography,<br>objects and handmade processes.",
     "archive.title": "Archive",
