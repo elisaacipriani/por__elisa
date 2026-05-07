@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="POR ELISA - portfolio artístico y archivo de proyectos.">
+    <title>POR ELISA</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+    <link rel="stylesheet" href="assets/css/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="POR ELISA">POR ELISA</a>
+      <nav class="site-nav" aria-label="Principal">
+        <a href="#archivo" data-i18n="nav.archive">[archivo]</a>
+        <a href="#bio" data-i18n="nav.bio">[bio]</a>
+        <a href="#contacto" data-i18n="nav.contact">[contacto]</a>
+      </nav>
+      <div class="language-switch" aria-label="Idioma">
+        <button type="button" data-set-lang="es" aria-pressed="true">ES</button>
+        <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="home-intro" aria-labelledby="intro-title">
+        <div class="intro-brackets" aria-hidden="true">
+          <span>[</span>
+          <span>]</span>
+        </div>
+        <div class="intro-portraits" aria-label="Retratos de Elisa">
+          <img src="assets/images/home/elisa-bio.png" alt="Retrato de Elisa." loading="eager">
+          <img src="assets/images/home/elisa-linkedin.jpg" alt="Retrato de Elisa." loading="eager">
+        </div>
+        <h1 id="intro-title">POR ELISA</h1>
+        <p class="intro-copy" data-i18n="home.intro">
+          Un archivo visual para reunir obra, fotografía,<br>
+          objetos y procesos hechos a mano.
+        </p>
+      </section>
+
+      <section id="archivo" class="archive-section" aria-labelledby="archive-title">
+        <div class="section-heading">
+          <h2 id="archive-title" data-i18n="archive.title">Archivo</h2>
+          <p data-i18n="archive.note">Obras, series y registros.</p>
+        </div>
+
+        <div class="archive-list">
+          <a class="archive-item" href="projects/hielos.html" data-category="photo">
+            <span class="archive-big-number" aria-hidden="true">01</span>
+            <span class="archive-title" data-i18n="project.ice.archiveTitle">Serie Fotográfica /<br>Superficies y Transformaciones</span>
+            <span class="archive-meta" data-i18n="project.ice.meta">Likenes / Fotografías</span>
+            <span class="archive-thumb" aria-hidden="true">
+              <img src="assets/images/hielos/1.jpg" alt="">
+            </span>
+          </a>
+
+          <a class="archive-item" href="projects/chalten.html" data-category="territory photo">
+            <span class="archive-big-number" aria-hidden="true">02</span>
+            <span class="archive-title" data-i18n="project.chalten.title">Serie Fotográfica / El Chaltén</span>
+            <span class="archive-meta" data-i18n="project.chalten.meta">Territorio / Fotografía</span>
+            <span class="archive-thumb" aria-hidden="true">
+              <img src="assets/images/chalten/1.jpg" alt="">
+            </span>
+          </a>
+
+          <a class="archive-item" href="projects/joyeria.html" data-category="object">
+            <span class="archive-big-number" aria-hidden="true">03</span>
+            <span class="archive-title" data-i18n="project.jewelry.title">Formas que Acompañan el Cuerpo</span>
+            <span class="archive-meta" data-i18n="project.jewelry.meta">Cortezas y Texturas / Joyería</span>
+            <span class="archive-thumb" aria-hidden="true">
+              <img src="assets/images/joyeria/1.jpg" alt="">
+            </span>
+          </a>
+
+          <a class="archive-item" href="projects/cuadros.html" data-category="work">
+            <span class="archive-big-number" aria-hidden="true">04</span>
+            <span class="archive-title" data-i18n="project.painting.title">Intersecciones</span>
+            <span class="archive-meta" data-i18n="project.painting.meta">Micro / Cuadros</span>
+            <span class="archive-thumb" aria-hidden="true">
+              <img src="assets/images/cuadros/1.jpg" alt="">
+            </span>
+          </a>
+        </div>
+      </section>
+
+      <section id="bio" class="bio-section" aria-labelledby="bio-title">
+        <div class="section-heading">
+          <h2 id="bio-title" data-i18n="bio.title">Bio</h2>
+        </div>
+        <div class="bio-grid">
+          <figure class="bio-portrait">
+            <img src="assets/images/home/elisa-bio.png" alt="Retrato de Elisa." loading="lazy">
+          </figure>
+          <div class="bio-copy">
+            <p class="bio-lead" data-i18n="bio.lead">
+              Elisa Cipriani es una diseñadora multidisciplinaria.
+            </p>
+            <p data-i18n="bio.copy">
+              Explora el arte, la moda y la cultura a través de prácticas manuales.
+              Su práctica cruza fotografía, ilustración, diseño y trabajo artesanal.
+              Le interesa crear proyectos con identidad propia, donde la imaginación
+              y la sensibilidad puedan abrir universos nuevos.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto" class="contact-section" aria-labelledby="contact-title">
+        <div class="section-heading">
+          <h2 id="contact-title" data-i18n="contact.title">Contacto</h2>
+          <p data-i18n="contact.note">Ya sea que quieras colaborar o simplemente hablar sobre arte y cultura, sentite libre de escribirme.</p>
+        </div>
+        <div class="contact-display">
+          <a class="contact-big" data-i18n="contact.email" href="mailto:elicipriani03@gmail.com?subject=Consulta%20por%20obra%20/%20POR%20ELISA&body=Hola%20Elisa%2C%0A%0AMe%20interesa%20conocer%20mas%20sobre%20tu%20obra%20y%20tus%20proyectos.%0A%0AGracias.">elicipriani03@gmail.com</a>
+          <a class="contact-big contact-phone" href="tel:+5491126112003">+5491126112003</a>
+          <div class="contact-socials" aria-label="Redes">
+            <a class="contact-small" href="https://www.instagram.com/por__elisa/" target="_blank" rel="noreferrer">INSTAGRAM</a>
+            <a class="contact-small" href="https://www.linkedin.com/in/elisa-cipriani-308a1b159/" target="_blank" rel="noreferrer">LINKEDIN</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>POR ELISA</span>
+      <span>Buenos Aires, Argentina</span>
+    </footer>
+
+    <script src="assets/js/site.js"></script>
+  </body>
+</html>
