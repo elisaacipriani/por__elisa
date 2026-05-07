@@ -566,6 +566,11 @@ main {
   gap: 18px;
 }
 
+.jewelry-gallery {
+  margin-top: 52px;
+  row-gap: 76px;
+}
+
 .project-gallery {
   grid-template-columns: 1fr;
   gap: 280px;
