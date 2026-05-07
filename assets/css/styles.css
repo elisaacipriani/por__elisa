@@ -396,10 +396,21 @@ main {
 
 .site-footer {
   display: flex;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 18px;
   padding: 18px var(--pad);
   border-top: 1px solid var(--line);
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.footer-rights {
+  font-size: 10px;
 }
 
 .project-page {
