@@ -1,6 +1,10 @@
-*
-!index.html
-!assets/
-!assets/**
-!projects/
-!projects/**
+.DS_Store
+.codex-tools/
+.vercel/
+Home/
+chalt*/
+hielos/
+joyer*/
+cuadros/
+favicon/
+referencias/
