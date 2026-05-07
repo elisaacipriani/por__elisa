@@ -532,7 +532,7 @@ main {
 .sequence-hint {
   position: relative;
   display: block;
-  width: min(260px, 46vw);
+  width: min(220px, 42vw);
   justify-self: end;
   align-self: start;
   aspect-ratio: 1;
