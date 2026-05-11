@@ -37,7 +37,7 @@ const copy = {
     "process.note": "[proceso / origen]",
     "bio.title": "Bio",
     "bio.imageTitle": "ELISA CIPRIANI ES<br>UNA DISEÑADORA<br>MULTIDISCIPLINARIA",
-    "bio.lead": "Elisa Cipriani es una diseñadora multidisciplinaria.",
+    "bio.lead": "Diseñadora Multidisciplinaria",
     "bio.copy": "Explora el arte, la moda y la cultura a través de prácticas manuales. Su práctica cruza fotografía, ilustración, diseño y trabajo artesanal. Le interesa crear proyectos con identidad propia, donde la imaginación y la sensibilidad puedan abrir universos nuevos.",
     "bio.copy2": "Diseñar es dar vida a nuevos universos. Las herramientas más valiosas que tenemos dentro son la imaginación y la creatividad. Con ellas podemos dar forma a las cosas para que el mundo las conozca.",
     "bio.copy3": "Intenta no definirse de una sola manera. Le gusta pensar que somos muchas cosas: nos transformamos, nos reconfiguramos y crecemos de forma irregular.",
@@ -46,7 +46,7 @@ const copy = {
     "bio.copy6": "Para crear hace falta confianza: involucrar el cuerpo, la mente y las manos. Le apasiona el trabajo artesanal y el encuentro entre lo hecho a mano y lo digital como una forma de seguir creando desde otros lugares.",
     "bio.copy7": "Hoy cree que es importante hacer espacio para la sensibilidad: aquello que deja huella en nuestros caminos. La cultura, el arte y el diseño son formas de expresión, conexión e intercambio.",
     "contact.title": "Contacto",
-    "contact.note": "Para colaborar o simplemente conversar sobre arte y cultura, podés escribirle a Elisa.",
+    "contact.note": "Para colaborar o simplemente conversar sobre arte y cultura, acercate a nosotros.",
     "contact.email": "elicipriani03@gmail.com",
     "label.section": "Sección",
     "label.material": "Material",
@@ -93,7 +93,7 @@ const copy = {
     "process.note": "[process / origin]",
     "bio.title": "Bio",
     "bio.imageTitle": "ELISA CIPRIANI IS<br>A MULTIDISCIPLINARY<br>DESIGNER",
-    "bio.lead": "Elisa Cipriani is a multidisciplinary designer.",
+    "bio.lead": "Multidisciplinary Designer",
     "bio.copy": "She explores arts, fashion and culture through handmade practices. Her practice crosses photography, illustration, design and handcraft. She is interested in creating projects with their own identity, where imagination and sensibility can open new universes.",
     "bio.copy2": "To design is to give life to new universes. The most valuable tools we have within ourselves are imagination and creativity. With these, we can give shape to things so that the world gets to know them.",
     "bio.copy3": "She tries not to define herself in only one way. She likes to think that we are many things: we transform, reconfigure and grow irregularly.",
@@ -102,7 +102,7 @@ const copy = {
     "bio.copy6": "To create, there needs to be trust: involving the body, the mind and the hands. She is passionate about handcrafts and the meeting point between handmade and digital things as a way to keep creating from other places.",
     "bio.copy7": "Today, she believes it is important to make space for sensibility: what leaves a trace over our paths. Culture, art and design are forms of expression, connection and exchange.",
     "contact.title": "Contact",
-    "contact.note": "For collaborations or simply talking about art and culture, you can write to Elisa.",
+    "contact.note": "For collaborations or simply talking about art and culture, reach out to us.",
     "contact.email": "elicipriani03@gmail.com",
     "label.section": "Section",
     "label.material": "Material",
@@ -153,7 +153,10 @@ function setLanguage(language) {
   });
 
   document.querySelectorAll("[data-set-lang]").forEach((button) => {
-    button.setAttribute("aria-pressed", String(button.dataset.setLang === currentLanguage));
+    const isCurrentLanguage = button.dataset.setLang === currentLanguage;
+    button.hidden = isCurrentLanguage;
+    button.setAttribute("aria-pressed", String(isCurrentLanguage));
+    button.setAttribute("aria-label", button.dataset.setLang === "es" ? "Cambiar a español" : "Switch to English");
   });
 }
 
