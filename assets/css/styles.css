@@ -294,6 +294,7 @@ main {
 }
 
 .archive-section {
+  --archive-mark-height: 128px;
   border-bottom: 1px solid var(--line);
 }
 
@@ -308,13 +309,17 @@ main {
   max-width: var(--paragraph-width);
 }
 
+.archive-section .section-heading {
+  grid-template-columns: minmax(280px, 0.34fr) minmax(260px, 0.78fr) minmax(150px, 0.34fr) var(--archive-mark-height);
+  gap: 34px;
+}
+
 .archive-list {
   display: grid;
   border-top: 1px solid var(--line);
 }
 
 .archive-item {
-  --archive-mark-height: 128px;
   position: relative;
   display: grid;
   grid-template-columns: minmax(280px, 0.34fr) minmax(260px, 0.78fr) minmax(150px, 0.34fr) var(--archive-mark-height);
@@ -495,7 +500,7 @@ main {
   flex-wrap: wrap;
   gap: 10px 14px;
   width: fit-content;
-  margin-top: 132px;
+  margin-top: 300px;
 }
 
 .contact-small {
@@ -635,9 +640,11 @@ main {
 }
 
 .project-intro-video {
+  position: relative;
+  left: 50%;
   width: 100vw;
   max-width: none;
-  margin: clamp(96px, 16vh, 180px) calc(var(--pad) * -1) clamp(116px, 18vh, 220px);
+  margin: clamp(96px, 16vh, 180px) -50vw clamp(116px, 18vh, 220px);
   overflow: visible;
   background: var(--bg);
 }
@@ -668,7 +675,7 @@ main {
 .project-intro-video figcaption {
   position: absolute;
   z-index: 2;
-  left: 0;
+  left: var(--pad);
   bottom: -22px;
   color: var(--text);
   font-size: 12px;
@@ -1116,8 +1123,8 @@ main {
 
   .contact-display {
     position: relative;
-    min-height: 900px;
-    min-height: max(900px, calc(100svh - 40px));
+    min-height: 1080px;
+    min-height: max(1080px, calc(100svh + 140px));
     padding: 0;
   }
 
@@ -1150,7 +1157,7 @@ main {
     position: absolute;
     left: 0;
     bottom: 0;
-    margin-top: 72px;
+    margin-top: 0;
   }
 
   .project-hero {
