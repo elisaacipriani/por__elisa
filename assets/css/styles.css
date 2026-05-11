@@ -687,6 +687,19 @@ main {
   margin-bottom: 0;
 }
 
+.ice-intro-video {
+  height: clamp(680px, 92svh, 1120px);
+  overflow: hidden;
+  background: #eaf2f4;
+}
+
+.ice-intro-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #eaf2f4;
+}
+
 .sequence-hint {
   position: relative;
   display: block;
