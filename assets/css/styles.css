@@ -1189,8 +1189,8 @@ main {
 
   .contact-display {
     position: relative;
-    min-height: 660px;
-    min-height: max(660px, calc(100svh - 220px));
+    min-height: 820px;
+    min-height: max(820px, calc(100svh - 60px));
     padding: 0;
   }
 
