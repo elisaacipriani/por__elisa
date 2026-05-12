@@ -4,7 +4,7 @@ const copy = {
     "nav.bio": "bio",
     "nav.contact": "contacto",
     "home.kicker": "Artista / Diseñadora / Persona",
-    "home.intro": "Un archivo visual para reunir<span class=\"mobile-break\"><br></span><span class=\"desktop-space\"> </span>obra, fotografía,<span class=\"desktop-break\"><br></span><span class=\"mobile-space\"> </span>objetos<span class=\"mobile-break\"><br></span><span class=\"desktop-space\"> </span>y procesos hechos a mano.",
+    "home.intro": "Un archivo visual que reune<span class=\"mobile-break\"><br></span><span class=\"desktop-space\"> </span>obra, fotografía,<span class=\"desktop-break\"><br></span><span class=\"mobile-space\"> </span>objetos<span class=\"mobile-break\"><br></span><span class=\"desktop-space\"> </span>y procesos hechos a mano.",
     "archive.title": "Archivo",
     "archive.note": "Obras, series y registros.",
     "filter.all": "[todo]",
@@ -241,9 +241,14 @@ function setupMobileMediaReveal() {
   }
 
   document.querySelectorAll(".project-page .media-item").forEach((item) => {
-    item.addEventListener("click", () => {
-      item.classList.toggle("is-revealed");
-    });
+    const reveal = () => {
+      item.classList.add("is-revealed");
+    };
+
+    item.addEventListener("touchstart", reveal, { passive: true });
+    item.addEventListener("pointerdown", reveal);
+    item.addEventListener("pointerup", reveal);
+    item.addEventListener("click", reveal);
   });
 }
 

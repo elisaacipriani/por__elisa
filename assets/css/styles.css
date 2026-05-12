@@ -302,6 +302,7 @@ main {
 
 .archive-section {
   --archive-mark-height: 128px;
+  padding-bottom: 49px;
   border-bottom: 1px solid var(--line);
 }
 
@@ -327,6 +328,7 @@ main {
 }
 
 .archive-list::before {
+  display: none;
   position: absolute;
   top: 0;
   left: calc(var(--pad) * -1);
@@ -352,6 +354,10 @@ main {
 
 .archive-item[hidden] {
   display: none;
+}
+
+.archive-item:last-child {
+  border-bottom: 0;
 }
 
 .archive-item > span {
@@ -518,7 +524,7 @@ main {
 .contact-socials {
   position: absolute;
   left: var(--pad);
-  bottom: 26px;
+  bottom: 84px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px 14px;
@@ -1122,8 +1128,12 @@ main {
   }
 
   .archive-section {
-    border-bottom: 0;
-    padding-bottom: 0;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 31px;
+  }
+
+  .bio-section {
+    padding-bottom: 62px;
   }
 
   .archive-list::before {
@@ -1211,6 +1221,7 @@ main {
   .contact-section {
     min-height: 100svh;
     overflow: hidden;
+    padding-bottom: 12px;
   }
 
   .contact-section .section-heading {
@@ -1223,8 +1234,8 @@ main {
 
   .contact-display {
     position: relative;
-    min-height: 820px;
-    min-height: max(820px, calc(100svh - 60px));
+    min-height: 870px;
+    min-height: max(870px, calc(100svh - 10px));
     padding: 0;
   }
 
@@ -1245,18 +1256,18 @@ main {
 
   .contact-email {
     right: 66px;
-    bottom: 0;
+    bottom: 50px;
   }
 
   .contact-phone {
     right: 142px;
-    bottom: 0;
+    bottom: 50px;
   }
 
   .contact-socials {
     position: absolute;
     left: 0;
-    bottom: 18px;
+    bottom: 50px;
     margin-top: 0;
   }
 
@@ -1312,14 +1323,26 @@ main {
     grid-template-columns: 1fr;
   }
 
-  .media-item:active img,
-  .media-item.is-revealed img {
-    filter: var(--image-clear-filter);
+  .project-page .media-item {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
 
-  .media-item:active .media-frame::before,
-  .media-item.is-revealed .media-frame::before {
-    opacity: 0;
+  .project-page .media-item img,
+  .project-page .media-item .media-frame::before {
+    transition: none;
+  }
+
+  .project-page .media-item.is-revealed img {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    filter: none !important;
+  }
+
+  .project-page .media-item.is-revealed .media-frame::before {
+    background: transparent !important;
+    opacity: 0 !important;
   }
 
   .project-gallery {
