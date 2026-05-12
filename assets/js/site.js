@@ -4,7 +4,7 @@ const copy = {
     "nav.bio": "bio",
     "nav.contact": "contacto",
     "home.kicker": "Artista / Diseñadora / Persona",
-    "home.intro": "Un archivo visual para reunir obra, fotografía,<br>objetos y procesos hechos a mano.",
+    "home.intro": "Un archivo visual para reunir<span class=\"mobile-break\"><br></span><span class=\"desktop-space\"> </span>obra, fotografía,<span class=\"desktop-break\"><br></span><span class=\"mobile-space\"> </span>objetos<span class=\"mobile-break\"><br></span><span class=\"desktop-space\"> </span>y procesos hechos a mano.",
     "archive.title": "Archivo",
     "archive.note": "Obras, series y registros.",
     "filter.all": "[todo]",
@@ -235,6 +235,18 @@ function setupCustomCursor() {
   });
 }
 
+function setupMobileMediaReveal() {
+  if (!window.matchMedia("(pointer: coarse)").matches) {
+    return;
+  }
+
+  document.querySelectorAll(".project-page .media-item").forEach((item) => {
+    item.addEventListener("click", () => {
+      item.classList.toggle("is-revealed");
+    });
+  });
+}
+
 document.querySelectorAll("[data-set-lang]").forEach((button) => {
   button.addEventListener("click", () => setLanguage(button.dataset.setLang));
 });
@@ -243,4 +255,5 @@ ensureInkFilter();
 setupFilters();
 setupSequences();
 setupCustomCursor();
+setupMobileMediaReveal();
 setLanguage(currentLanguage);
