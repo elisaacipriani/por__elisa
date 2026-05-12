@@ -713,6 +713,14 @@ main {
   filter: none;
 }
 
+.jewelry-intro-video .media-frame {
+  aspect-ratio: 4 / 3;
+}
+
+.jewelry-intro-video img {
+  height: 100%;
+}
+
 .project-intro-video .media-frame::before {
   display: none;
 }
@@ -1300,13 +1308,13 @@ main {
   }
 
   .jewelry-intro-video .media-frame {
-    aspect-ratio: 9 / 16;
+    aspect-ratio: 3 / 4;
   }
 
   .jewelry-intro-video img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
 
   .ice-intro-video {

@@ -180,10 +180,24 @@ function setupFilters() {
 function setupSequences() {
   document.querySelectorAll("[data-sequence]").forEach((sequence) => {
     const image = sequence.querySelector("img");
-    const frames = (sequence.dataset.frames || "")
-      .split(",")
-      .map((frame) => frame.trim())
-      .filter(Boolean);
+    const mobileQuery = window.matchMedia("(max-width: 760px)");
+    const readFrames = () => {
+      const source = mobileQuery.matches && sequence.dataset.mobileFrames
+        ? sequence.dataset.mobileFrames
+        : sequence.dataset.frames;
+
+      return (source || "")
+        .split(",")
+        .map((frame) => frame.trim())
+        .filter(Boolean);
+    };
+    const preloadFrames = (frameList) => {
+      frameList.slice(1).forEach((frame) => {
+        const preload = new Image();
+        preload.src = frame;
+      });
+    };
+    let frames = readFrames();
     const interval = Number(sequence.dataset.interval) || 300;
 
     if (!image || frames.length < 2) {
@@ -191,10 +205,17 @@ function setupSequences() {
     }
 
     let index = 0;
-    frames.slice(1).forEach((frame) => {
-      const preload = new Image();
-      preload.src = frame;
-    });
+    image.src = frames[0];
+    preloadFrames(frames);
+
+    if (sequence.dataset.mobileFrames) {
+      mobileQuery.addEventListener("change", () => {
+        frames = readFrames();
+        index = 0;
+        image.src = frames[0];
+        preloadFrames(frames);
+      });
+    }
 
     window.setInterval(() => {
       index = (index + 1) % frames.length;
